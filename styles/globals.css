@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+
+  body, html{
+@apply font-body overflow-x-hidden;
+
+  }
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='number'],
+input[type='url'],
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='search'],
+input[type='tel'],
+select,
+select[multiple],
+textarea{
+  @apply  border border-slate-400
+}
+
+
+input[type='radio']{
+@apply border h-6 w-6   focus:ring-0
+}
+}
+
+@layer components{
+  .wrap_center{
+  @apply md:container container  mx-auto
+}
+.mobile-bg{
+
+}
+.btn_call_us{
+  @apply bg-primary rounded-md
+}
+.wrapper{
+  @apply p-4 w-full
+  
+}
+.form_group{
+  @apply flex flex-col my-4
+}
+.label{
+  @apply italic text-slate-400 text-sm capitalize  my-3
+}
+.ui{
+  @apply flex space-x-4 lg:flex-row 
+}
+
+}
