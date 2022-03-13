@@ -53,7 +53,7 @@ export default function FormProgress() {
         <div className="h-1 w-2/6  bg-primary"></div>
         <div className="relative flex h-6 w-6 items-center justify-center rounded-full bg-slate-300">
           {step}
-          <div className="absolute top-6 w-[120px] text-center text-base uppercase text-primary">
+          <div className="absolute top-6 -right-4 w-[120px] text-left text-base uppercase text-primary">
             Almost Done
           </div>
         </div>
@@ -66,13 +66,13 @@ export default function FormProgress() {
         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
           <Checked />
         </div>
-        <div className="h-1 w-2/6  bg-[#71DEE5]"></div>
+        <div className="h-1 w-2/6  bg-primary"></div>
         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
           <Checked />
         </div>
 
-        <div className="h-1 w-2/6  bg-[#71DEE5]"></div>
-        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#40AEB6] text-white">
+        <div className="h-1 w-2/6  bg-primary"></div>
+        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
           <Checked />
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { initialDestination, destSchemaValidator } from '../schema/quote.schema'
 import OnerrorForm from './Onerror.form'
-import { Persist } from 'formik-persist'
+
 import InputField from './InputField'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -10,11 +10,12 @@ import { Context } from '../context'
 import ChoiceC from './ChoiceC'
 import ChoiceD from './ChoiceD'
 import Floor from './Floor.component'
+import { Persist } from 'formik-persist'
 
 export default function FormTwo() {
   const router = useRouter()
   useEffect(() => {
-    router.push('getquote/?step-2')
+    router.push('/getquote/?step-2')
   }, [])
   const { step, local_B, goNext, goPrevious } = useContext(Context)
   const {
@@ -31,7 +32,11 @@ export default function FormTwo() {
       <Formik
         initialValues={initialDestination}
         validationSchema={destSchemaValidator}
-        onSubmit={async () => goNext()}
+        onSubmit={async (values) => {
+          goNext()
+          store.set('locB', { value: values })
+          console.log(values)
+        }}
       >
         {({ values }) => (
           <Form autoComplete="off">
@@ -93,20 +98,8 @@ export default function FormTwo() {
             </div>
 
             <div className="my-6 flex items-center justify-between">
-              {step > 1 ? (
-                <Link href="#">
-                  <a
-                    className="w-32  py-2 px-4  underline"
-                    onClick={goPrevious}
-                  >
-                    Back
-                  </a>
-                </Link>
-              ) : (
-                ''
-              )}
               <button
-                type="button"
+                type="submit"
                 onClick={goNext}
                 className="w-24 bg-primary py-2 px-4 text-white"
               >

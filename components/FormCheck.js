@@ -6,6 +6,8 @@ import { apiRequests } from '../services/apiResquests'
 
 function FormCheck() {
   const router = useRouter()
+
+  const [hasSent, setHasSent] = useState(false)
   useEffect(() => {
     router.push('getquote/?step-3')
   }, [])
@@ -39,7 +41,12 @@ function FormCheck() {
 
     const response = await apiRequests.post('/edekmoving', { ...result })
     if (response.data.success) {
-      goNext()
+      setHasSent(true)
+      setTimeout(() => {
+        localStorage.removeItem('location-a')
+        localStorage.removeItem('location-b')
+        goNext()
+      }, 1000)
     }
   }
   return (
@@ -132,15 +139,22 @@ function FormCheck() {
         ) : (
           ''
         )}
-        {step > 4 ? (
-          'loading'
+        {!hasSent ? (
+          <button
+            type="button"
+            onClick={submitHandler}
+            className="w-24 bg-primary py-2 px-4 text-white duration-500 ease-in-out hover:bg-primary"
+          >
+            Submit
+          </button>
         ) : (
           <button
             type="button"
             onClick={submitHandler}
-            className="w-24 bg-primary/75 py-2 px-4 text-white duration-500 ease-in-out hover:bg-primary"
+            className="w-24 bg-primary/75 py-2 px-4 text-white duration-500 ease-in-out"
+            disabled={hasSent}
           >
-            Submit
+            Sending...
           </button>
         )}
       </div>

@@ -8,7 +8,8 @@ function Main() {
       router.push('/getquote')
     }
   }, [])
-  return <div>Loading...</div>
+
+  return <div></div>
 }
 
 export default Main

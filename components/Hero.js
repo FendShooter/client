@@ -9,8 +9,8 @@ export default function Hero() {
     <>
       <section className="bg-gradient-to-r from-[#29A5E9] to-[#1678AE] ">
         <div className=" wrap_center  w-full bg-gradient-to-r from-[#29A5E9] to-[#1678AE]  ">
-          <div className=" flex h-[40vh] w-full   items-center justify-center bg-[url('/images/asset2.svg')] bg-contain bg-right-top bg-no-repeat md:bg-contain ">
-            <div className="mt-60 h-auto w-16 flex-grow">
+          <div className=" flex h-[35vh] w-full   items-center justify-center bg-[url('/images/asset2.svg')] bg-contain bg-right-top bg-no-repeat md:bg-contain ">
+            <div className="sm:mt-50 mt-40 h-auto w-16 flex-grow">
               {/* <motion.h1
                 initial={{ y: '-600px', opacity: 0 }}
                 animate={{
@@ -26,14 +26,14 @@ export default function Hero() {
               <div className=" flex w-full flex-row items-center space-x-8 pl-4">
                 <div>
                   <Link href="/getquote/?step-1">
-                    <a className="block flex-none rounded-sm bg-white px-3 py-1 font-bold uppercase duration-300  ease-in hover:scale-110 md:py-3 md:px-4">
+                    <a className="block flex-none rounded-sm bg-white px-4 py-3 font-bold uppercase duration-300  ease-in hover:scale-110 md:py-3 md:px-4">
                       Get a free quote
                     </a>
                   </Link>
                 </div>
                 <div>
                   <Link href="tel:934-200-8161">
-                    <a className="flex-none rounded-sm border-2 border-[#99F8FF] px-3 py-1 text-xl  uppercase text-primary md:px-4 md:py-3">
+                    <a className="flex-none rounded-sm bg-primary  px-4 py-4 text-sm font-semibold  uppercase text-white ">
                       Call now
                     </a>
                   </Link>

@@ -7,8 +7,8 @@ export default function Success() {
 
   const gotoPage = () => {
     setStep(1)
-    // window.location.replace('/about')
-    router.replace('/about')
+    window.location.replace('/about')
+    // router.push('/about')
   }
   return (
     <div className=" h-[350px] justify-center">

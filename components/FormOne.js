@@ -1,6 +1,5 @@
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik'
-import { Persist } from 'formik-persist'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useLayoutEffect } from 'react'
 import { Context } from '../context'
 import { initialValues, quoteValidator } from '../schema/quote.schema'
 import InputField from './InputField'
@@ -10,22 +9,23 @@ import Floor from './Floor.component'
 import OnerrorForm from './Onerror.form'
 import { useRouter } from 'next/router'
 
+import { Persist } from 'formik-persist'
 function FormOne() {
   const router = useRouter()
   const { local_A, step, goNext } = useContext(Context)
   const { locA_houseElevator } = local_A
   useEffect(() => {
     router.push('getquote/?step-1')
-    localStorage.removeItem('location-a')
-    localStorage.removeItem('location-b')
   }, [])
   return (
     <div className="my-10">
       <Formik
         initialValues={initialValues}
         validationSchema={quoteValidator}
+        isInitialValid={false}
         onSubmit={async (values) => {
           goNext()
+          store.set('user', { value: values })
         }}
       >
         {({ values }) => (
@@ -79,10 +79,6 @@ function FormOne() {
                 <Choice />
                 <ChoiceB />
               </div>
-              <Floor
-                locA_houseElevator={locA_houseElevator}
-                name="locType.floor"
-              />
             </div>
 
             {/* //#endregion */}
