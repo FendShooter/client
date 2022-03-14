@@ -9,7 +9,6 @@ import Link from 'next/link'
 import { Context } from '../context'
 import ChoiceC from './ChoiceC'
 import ChoiceD from './ChoiceD'
-import Floor from './Floor.component'
 import { Persist } from 'formik-persist'
 
 export default function FormTwo() {
@@ -69,10 +68,6 @@ export default function FormTwo() {
                 <ChoiceC />
                 <ChoiceD />
               </div>
-              <Floor
-                locA_houseElevator={locB_houseElevator}
-                name="locTypeB.floor"
-              />
             </div>
             <div className="form_group">
               <InputField
@@ -96,8 +91,19 @@ export default function FormTwo() {
               />
               <ErrorMessage name="note" component={OnerrorForm} />
             </div>
-
             <div className="my-6 flex items-center justify-between">
+              {step > 1 ? (
+                <Link href="#">
+                  <a
+                    className="w-32 py-2 px-4  text-slate-500 underline"
+                    onClick={goPrevious}
+                  >
+                    Back
+                  </a>
+                </Link>
+              ) : (
+                ''
+              )}
               <button
                 type="submit"
                 onClick={goNext}
@@ -107,6 +113,7 @@ export default function FormTwo() {
               </button>
             </div>
             <Persist name="location-b" />
+            {/* <div>{JSON.stringify(values)}</div> */}
           </Form>
         )}
       </Formik>
@@ -114,4 +121,3 @@ export default function FormTwo() {
   )
 }
 
-// {/* <div>{JSON.stringify(values)}</div> */}

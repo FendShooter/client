@@ -131,6 +131,25 @@ export default function Header() {
                 <a className="btn_call_us px-4 py-2 text-white">934-200-8161</a>
               </Link>
             </li>
+            <li
+              className={` ${
+                pathname === '/reviews'
+                  ? ' border-b-2 border-primary uppercase '
+                  : 'uppercase'
+              } `}
+            >
+              <Link href="/reviews">
+                <a
+                  className={` ${
+                    pathname === '/reviews'
+                      ? ' font-semibold text-primary '
+                      : ''
+                  } `}
+                >
+                  Reviews
+                </a>
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>

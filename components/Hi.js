@@ -30,6 +30,9 @@ export default function Hi() {
         <li onClick={closeModal}>
           <Link href="/contact-us">Contact</Link>
         </li>
+        <li onClick={closeModal}>
+          <Link href="/reviews">Reviews</Link>
+        </li>
         <li>
           <Link href="tel:934-200-8161">
             <a className="btn_call_us px-4 py-2 text-white">934-200-8161</a>

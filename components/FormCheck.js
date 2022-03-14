@@ -72,7 +72,7 @@ function FormCheck() {
             <div className="flex space-x-4 text-xl">
               <span className="inline-block">Elevator: </span>
               <span className="inline-block">
-                {elevator === 'false' ? 'na' : 'Yes'}
+                {elevator === 'false' ? 'No' : 'Yes'}
               </span>
             </div>
             <span>|</span>

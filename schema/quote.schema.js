@@ -58,3 +58,16 @@ export const initialDestination = {
   note: '',
   date: new Date(),
 }
+
+
+export const reviewInitial = {
+  firstName: '',
+  lastName: '',
+  review: '',
+}
+
+export const reviewValidator = Yup.object().shape({
+  firstName: Yup.string().trim().required('Required'),
+  lastName: Yup.string().trim().required('Required'),
+  review: Yup.string().trim().required('Required'),
+})

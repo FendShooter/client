@@ -1,5 +1,5 @@
 import { useField } from 'formik'
-
+import React from 'react'
 const InputField = (props) => {
   const [field] = useField({
     name: props.name,
@@ -10,11 +10,11 @@ const InputField = (props) => {
   return (
     <>
       <label htmlFor={props.name} className="label">
-        {props.name} {props.req ? <span className="text-red-500">*</span> : ''}
+        {props.name} {props.req && <span className="text-red-500">*</span>}
       </label>
       <input {...field} {...props} />
     </>
   )
 }
 
-export default InputField
+export default React.memo(InputField)

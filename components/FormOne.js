@@ -1,11 +1,10 @@
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik'
-import { useContext, useEffect, useLayoutEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { Context } from '../context'
 import { initialValues, quoteValidator } from '../schema/quote.schema'
 import InputField from './InputField'
 import Choice from './Choice'
 import ChoiceB from './ChoiceB'
-import Floor from './Floor.component'
 import OnerrorForm from './Onerror.form'
 import { useRouter } from 'next/router'
 
@@ -22,10 +21,8 @@ function FormOne() {
       <Formik
         initialValues={initialValues}
         validationSchema={quoteValidator}
-        isInitialValid={false}
         onSubmit={async (values) => {
           goNext()
-          store.set('user', { value: values })
         }}
       >
         {({ values }) => (
@@ -105,6 +102,7 @@ function FormOne() {
               </button>
             </div>
             <Persist name="location-a" />
+            {/* <div>{JSON.stringify(values)}</div> */}
           </Form>
         )}
       </Formik>

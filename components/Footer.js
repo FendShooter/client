@@ -38,6 +38,7 @@ export default function Footer() {
                   <Link href="/about">About us</Link>
                   <Link href="/long-distance">Long distance</Link>
                   <Link href="/contact-us"> Contacts</Link>
+                  <Link href="/review">Reviews</Link>
                 </div>
               </section>
               <div className="my-4 flex h-16 w-28 cursor-pointer space-x-4">

@@ -1,6 +1,7 @@
 import { Field } from 'formik'
 import { useContext } from 'react'
 import { Context } from '../context'
+import Floor from './Floor.component'
 
 export default function ChoiceB() {
   const { local_A, step, goNext } = useContext(Context)
@@ -84,6 +85,14 @@ export default function ChoiceB() {
                   </Field>
                 </span>
               </div>
+              {!locaA_houseType && (
+                <div>
+                  <Floor
+                    locaA_houseType={locaA_houseType}
+                    name="locType.floor"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </label>
